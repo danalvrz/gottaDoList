@@ -1,7 +1,9 @@
+/* eslint-disable no-unused-vars */
 import _ from 'lodash';
 import './style.css';
 import Dots from './dots.png';
 import Refresh from './refresh.png';
+import Enter from './enter.png';
 
 const wrapper = document.getElementById('wrapper');
 
@@ -21,7 +23,7 @@ class TODO {
 
 // List title
 const listTitle = document.createElement('h1');
-listTitle.innerHTML = `Today\'s To Do <span class="refresh"><img src="${Refresh}" width="15" class=""/></span>`;
+listTitle.innerHTML = `Today's To Do <span class="refresh"><img src="${Refresh}" width="15" class=""/></span>`;
 listTitle.classList.add('list-title');
 
 // List container
@@ -46,7 +48,6 @@ const displayList = () => {
   list.innerHTML = '';
   for (let i = 0; i < taskCollection.length; i += 1) {
     const listItem = document.createElement('li');
-    const checkbox = document.createElement('input');
     listItem.classList.add('listItem');
     listItem.innerHTML = `<input type="checkbox" class="checkbox"/><label contenteditable="true">${taskCollection[i].description}</label>`;
     list.appendChild(listItem);
