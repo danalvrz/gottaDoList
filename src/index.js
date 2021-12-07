@@ -1,17 +1,12 @@
 /* eslint-disable no-unused-vars */
 import _ from 'lodash';
 import './style.css';
-import Dots from './dots.png';
 import Refresh from './refresh.png';
-import Enter from './enter.png';
+import {
+  checkStatus, getValue, taskCollection,
+} from './statusCheck.js';
 
 const wrapper = document.getElementById('wrapper');
-
-const taskCollection = [
-  { description: 'water plants', completed: false, index: 0 },
-  { description: 'do laundry', completed: false, index: 1 },
-  { description: 'bake cake', completed: false, index: 2 },
-];
 
 class TODO {
   constructor(description, index) {
@@ -50,6 +45,10 @@ const displayList = () => {
     const listItem = document.createElement('li');
     listItem.classList.add('listItem');
     listItem.innerHTML = `<input type="checkbox" class="checkbox"/><label contenteditable="true">${taskCollection[i].description}</label>`;
+    if (taskCollection[i].completed === true) {
+      listItem.classList.add('checked');
+      listItem.children[0].checked = true;
+    }
     list.appendChild(listItem);
   }
 };
@@ -58,4 +57,6 @@ wrapper.appendChild(listTitle);
 wrapper.appendChild(addBoxContainer);
 wrapper.appendChild(list);
 wrapper.appendChild(clearButton);
+getValue();
 displayList();
+checkStatus();

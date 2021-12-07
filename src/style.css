@@ -1,5 +1,8 @@
 body {
   background-color: lightslategray;
+  display: flex;
+  align-content: center;
+  justify-content: center;
 }
 
 #wrapper {
@@ -85,4 +88,10 @@ body {
 .clearButton:hover {
   background-color: cadetblue;
   color: white;
+}
+
+.checked {
+  color: gray;
+  text-decoration-line: line-through;
+  font-style: italic;
 }
