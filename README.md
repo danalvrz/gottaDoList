@@ -3,9 +3,6 @@
 This is a clone based on Minimalist [To-Do List](https://web.archive.org/web/20180320194056/http://www.getminimalist.com:80/).
 
 
-## Screenshots
-
-
 ## Built With
 
 - HTML
@@ -13,11 +10,6 @@ This is a clone based on Minimalist [To-Do List](https://web.archive.org/web/201
 - JavaScript
 - Visual Studio Code
 - Webpack
-
-
-## Live Demo
-
-[Live Demo Link](https://danalvrz.github.io/)
 
 
 ## Authors

@@ -1,5 +1,8 @@
 body {
   background-color: lightslategray;
+  display: flex;
+  align-content: center;
+  justify-content: center;
 }
 
 #wrapper {
@@ -69,6 +72,10 @@ body {
   font-style: italic;
 }
 
+#addBox:focus {
+  background-image: none;
+}
+
 .clearButton {
   border: none;
   width: 100%;
@@ -76,7 +83,7 @@ body {
   margin: 0;
   background-color: rgb(232, 232, 232);
   font-family: "Open Sans", sans-serif;
-  color: gray;
+  color: rgb(87, 87, 87);
   font-size: 15px;
   font-weight: 400;
   padding-left: 15px;
@@ -85,4 +92,10 @@ body {
 .clearButton:hover {
   background-color: cadetblue;
   color: white;
+}
+
+.checked {
+  color: gray;
+  text-decoration-line: line-through;
+  font-style: italic;
 }
