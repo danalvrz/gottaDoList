@@ -106,7 +106,7 @@ body {
   background-image: url(./enter.png);
 }
 
-.taskDescription{
+.taskDescription {
   overflow: hidden;
   resize: none;
 }
@@ -115,7 +115,6 @@ body {
   display: flex;
   justify-content: flex-end;
   justify-self: flex-end;
-  justify-content: flex-end;
   position: absolute;
   margin-top: -24px;
   margin-left: 380px;
@@ -127,5 +126,4 @@ body {
   justify-self: flex-end;
   align-self: flex-end;
   width: 25px;
-  border: solis 4px red;
 }
