@@ -2,10 +2,6 @@
 
 This is a clone based on Minimalist [To-Do List](https://web.archive.org/web/20180320194056/http://www.getminimalist.com:80/).
 
-## Live Demo
-
-[Live Demo](https://danalvrz.github.io/gottaDoList/)
-
 
 ## Built With
 
