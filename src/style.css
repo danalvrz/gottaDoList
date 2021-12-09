@@ -9,6 +9,7 @@ body {
   background-color: white;
   width: 480px;
   margin-top: 100px;
+  box-shadow: rgba(100, 100, 111, 0.9) 10px 7px 29px 10px;
 }
 
 .list-title {
@@ -58,7 +59,7 @@ body {
   margin: 0;
   padding-left: 15px;
   border-bottom: solid 1px lightgray;
-  background-image: url(./enter.png);
+  background-image: none;
   background-size: 3%;
   background-repeat: no-repeat;
   background-position: 96% 50%;
@@ -73,7 +74,7 @@ body {
 }
 
 #addBox:focus {
-  background-image: none;
+  background-image: url(./enter.png);
 }
 
 .clearButton {
@@ -83,8 +84,8 @@ body {
   margin: 0;
   background-color: rgb(232, 232, 232);
   font-family: "Open Sans", sans-serif;
-  color: rgb(87, 87, 87);
-  font-size: 15px;
+  color: rgb(71, 71, 71);
+  font-size: 17px;
   font-weight: 400;
   padding-left: 15px;
 }
@@ -98,4 +99,31 @@ body {
   color: gray;
   text-decoration-line: line-through;
   font-style: italic;
+}
+
+.editable {
+  background-color: lightgoldenrodyellow;
+  background-image: url(./enter.png);
+}
+
+.taskDescription {
+  overflow: hidden;
+  resize: none;
+}
+
+.deteleTask {
+  display: flex;
+  justify-content: flex-end;
+  justify-self: flex-end;
+  position: absolute;
+  margin-top: -24px;
+  margin-left: 380px;
+  filter: invert(60%);
+}
+
+.trashCan {
+  display: flex;
+  justify-self: flex-end;
+  align-self: flex-end;
+  width: 25px;
 }

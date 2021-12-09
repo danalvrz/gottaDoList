@@ -1,7 +1,6 @@
 # gottaDoList
 
-This is a clone based on Minimalist [To-Do List](https://web.archive.org/web/20180320194056/http://www.getminimalist.com:80/).
-
+This is a clone based on Minimalist [To-Do List](https://web.archive.org/web/20180320194056/http://www.getminimalist.com:80/). This app allows the user to easily store a list of tasks or chores, edit their description, delete them, and clear all the completed tasks.
 
 ## Built With
 
@@ -10,6 +9,30 @@ This is a clone based on Minimalist [To-Do List](https://web.archive.org/web/201
 - JavaScript
 - Visual Studio Code
 - Webpack
+
+## Getting Started
+
+To get a local copy of the repository please run the following commands on your terminal:
+
+```
+$ cd <folder>
+```
+
+~~~bash
+$ git clone git@github.com:danalvrz/gottaDoList.git
+$ cd gottaDoList
+
+~~~
+
+## For Webpack
+
+~~~bash
+
+$ npm run build
+
+$ npm run start
+
+~~~
 
 
 ## Authors
