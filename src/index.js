@@ -2,19 +2,16 @@
 import _ from 'lodash';
 import './style.css';
 import Refresh from './refresh.png';
+import DeleteIcon from './delete.png';
 import {
-  checkStatus, getValue, taskCollection,
+  checkStatus, getValue, myList, saveValue,
 } from './statusCheck.js';
+// eslint-disable-next-line import/no-cycle
+import {
+  addTask, editTask, deleteTask, clearAll,
+} from './addRemove.js';
 
 const wrapper = document.getElementById('wrapper');
-
-class TODO {
-  constructor(description, index) {
-    this.description = description;
-    this.completed = false;
-    this.index = index;
-  }
-}
 
 // List title
 const listTitle = document.createElement('h1');
@@ -33,30 +30,44 @@ addBox.placeholder = 'Add to your list...';
 addBox.id = 'addBox';
 addBoxContainer.appendChild(addBox);
 
-// Clear all button
-const clearButton = document.createElement('button');
-clearButton.innerText = 'Clear All Completed';
-clearButton.classList.add('clearButton');
-
 // Collection iteration
 const displayList = () => {
   list.innerHTML = '';
-  for (let i = 0; i < taskCollection.length; i += 1) {
+  for (let i = 0; i < myList.taskCollection.length; i += 1) {
+    myList.taskCollection[i].index = i;
     const listItem = document.createElement('li');
     listItem.classList.add('listItem');
-    listItem.innerHTML = `<input type="checkbox" class="checkbox"/><label contenteditable="true">${taskCollection[i].description}</label>`;
-    if (taskCollection[i].completed === true) {
+    listItem.innerHTML = `<input type="checkbox" class="checkbox" /><label contenteditable="true" class="taskDescription" type="text">${myList.taskCollection[i].description}</label><span class="deteleTask"><img src="${DeleteIcon}" class="trashCan"/></span>`;
+    if (myList.taskCollection[i].completed === true) {
       listItem.classList.add('checked');
       listItem.children[0].checked = true;
     }
     list.appendChild(listItem);
   }
+  checkStatus();
+  deleteTask();
+  editTask();
+  saveValue();
 };
+
+// Clear all button
+const clearButton = document.createElement('button');
+clearButton.innerText = 'Clear All Completed';
+clearButton.classList.add('clearButton');
 
 wrapper.appendChild(listTitle);
 wrapper.appendChild(addBoxContainer);
 wrapper.appendChild(list);
 wrapper.appendChild(clearButton);
+
 getValue();
+addTask();
 displayList();
 checkStatus();
+deleteTask();
+editTask();
+clearAll();
+
+export {
+  addBox, displayList, clearButton,
+};

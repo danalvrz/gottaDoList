@@ -1,20 +1,31 @@
-// eslint-disable-next-line import/no-mutable-exports
-let taskCollection = [
-  { description: 'water plants', completed: false, index: 0 },
-  { description: 'do laundry', completed: false, index: 1 },
-  { description: 'bake cake', completed: false, index: 2 },
-];
+/* eslint-disable max-classes-per-file */
+
+class Collection {
+  constructor() {
+    this.taskCollection = [];
+  }
+}
+
+class TODO {
+  constructor(description) {
+    this.description = description;
+    this.completed = false;
+    this.index = '';
+  }
+}
+
+const myList = new Collection();
 
 // Store tasks array
 function saveValue() {
-  const saveCollection = JSON.stringify(taskCollection);
+  const saveCollection = JSON.stringify(myList.taskCollection);
   localStorage.setItem('taskCollection', saveCollection);
 }
 
 // Get tasks array
 function getValue() {
   if (localStorage.getItem('taskCollection')) {
-    taskCollection = JSON.parse(localStorage.getItem('taskCollection'));
+    myList.taskCollection = JSON.parse(localStorage.getItem('taskCollection'));
     saveValue();
   }
 }
@@ -27,11 +38,11 @@ function checkStatus() {
     cbox[i].addEventListener('change', () => {
       if (cbox[i].checked === true) {
         cbox[i].parentNode.classList.add('checked');
-        taskCollection[i].completed = true;
+        myList.taskCollection[i].completed = true;
         saveValue();
       } else if (cbox[i].checked !== true) {
         cbox[i].parentNode.classList.remove('checked');
-        taskCollection[i].completed = false;
+        myList.taskCollection[i].completed = false;
         saveValue();
       }
     });
@@ -39,5 +50,5 @@ function checkStatus() {
 }
 
 export {
-  checkStatus, saveValue, getValue, taskCollection,
+  checkStatus, saveValue, getValue, myList, TODO,
 };
