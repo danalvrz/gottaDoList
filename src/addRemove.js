@@ -43,7 +43,8 @@ const deleteTask = () => {
   for (let i = 0; i < trashCans.length; i += 1) {
     trashCans[i].addEventListener('click', () => {
       const newCollection = myList.taskCollection.filter(
-        (TODO) => TODO.index !== myList.taskCollection[i].index);
+        (TODO) => TODO.index !== myList.taskCollection[i].index,
+      );
       myList.taskCollection = newCollection;
       displayList();
       checkStatus();
