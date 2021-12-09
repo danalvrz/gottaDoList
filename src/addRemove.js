@@ -42,8 +42,8 @@ const deleteTask = () => {
   const trashCans = document.querySelectorAll('.trashCan');
   for (let i = 0; i < trashCans.length; i += 1) {
     trashCans[i].addEventListener('click', () => {
-      // eslint-disable-next-line max-len
-      const newCollection = myList.taskCollection.filter((TODO) => TODO.index !== myList.taskCollection[i].index);
+      const newCollection = myList.taskCollection.filter(
+        (TODO) => TODO.index !== myList.taskCollection[i].index);
       myList.taskCollection = newCollection;
       displayList();
       checkStatus();
