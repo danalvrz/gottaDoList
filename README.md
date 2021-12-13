@@ -2,6 +2,10 @@
 
 This is a clone based on Minimalist [To-Do List](https://web.archive.org/web/20180320194056/http://www.getminimalist.com:80/). This app allows the user to easily store a list of tasks or chores, edit their description, delete them, and clear all the completed tasks.
 
+## Live Demo
+
+[Live Demo](https://danalvrz.github.io/gottaDoList/dist/)
+
 ## Built With
 
 - HTML
