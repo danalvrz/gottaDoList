@@ -46,6 +46,7 @@ const deleteTask = () => {
         (TODO) => TODO.index !== myList.taskCollection[i].index,
       );
       myList.taskCollection = newCollection;
+      saveValue();
       displayList();
       checkStatus();
       editTask();
