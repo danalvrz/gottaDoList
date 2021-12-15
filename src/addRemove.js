@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-cycle
 import { addBox, displayList, clearButton } from './index.js';
 import {
-  myList, saveValue, checkStatus, TODO,
+  myList, saveValue, TODO,
 } from './statusCheck.js';
 
 const addTask = () => {
@@ -12,7 +12,6 @@ const addTask = () => {
       newTodo.index = myList.taskCollection.length;
       myList.taskCollection.push(newTodo);
       addBox.value = '';
-      checkStatus();
       saveValue();
       displayList();
     }
@@ -28,8 +27,8 @@ const editTask = () => {
     editBoxes[i].addEventListener('keydown', ({ key }) => {
       if (key === 'Enter' && editBoxes[i].innerText !== '') {
         myList.taskCollection[i].description = editBoxes[i].innerText;
-        editBoxes[i].blur();
         saveValue();
+        editBoxes[i].blur();
       }
     });
     editBoxes[i].addEventListener('blur', () => {
@@ -48,8 +47,6 @@ const deleteTask = () => {
       myList.taskCollection = newCollection;
       saveValue();
       displayList();
-      checkStatus();
-      editTask();
     });
   }
 };
@@ -64,7 +61,6 @@ const clearAll = () => {
     myList.taskCollection = myList.taskCollection.filter((x) => !checkedCollection.includes(x));
     saveValue();
     displayList();
-    checkStatus();
   });
 };
 

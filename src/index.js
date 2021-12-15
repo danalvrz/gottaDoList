@@ -63,8 +63,6 @@ wrapper.appendChild(clearButton);
 getValue();
 addTask();
 displayList();
-checkStatus();
-deleteTask();
 editTask();
 clearAll();
 
