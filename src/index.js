@@ -61,8 +61,16 @@ wrapper.appendChild(list);
 wrapper.appendChild(clearButton);
 
 getValue();
-addTask();
+
+addBox.addEventListener('keydown', addTask);
+
 displayList();
+const trashCans = document.querySelectorAll('.trashCan');
+console.log(trashCans);
+for (let i = 0; i < trashCans.length; i += 1) {
+  trashCans[i].addEventListener('click', deleteTask);
+}
+
 editTask();
 clearAll();
 

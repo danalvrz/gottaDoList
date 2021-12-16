@@ -4,18 +4,19 @@ import {
   myList, saveValue, TODO,
 } from './statusCheck.js';
 
-const addTask = () => {
-  addBox.addEventListener('keydown', ({ key }) => {
-    if (key === 'Enter' && addBox.value !== '') {
-      const newTodo = new TODO();
-      newTodo.description = addBox.value;
-      newTodo.index = myList.taskCollection.length;
-      myList.taskCollection.push(newTodo);
-      addBox.value = '';
-      saveValue();
-      displayList();
-    }
-  });
+// Adds task to collection
+
+const addTask = (e) => {
+  // console.log(e.path[0]);
+  if (e.key === 'Enter' && addBox.value !== '') {
+    const newTodo = new TODO();
+    newTodo.description = addBox.value;
+    newTodo.index = myList.taskCollection.length;
+    myList.taskCollection.push(newTodo);
+    addBox.value = '';
+    saveValue();
+    displayList();
+  }
 };
 
 const editTask = () => {
@@ -37,6 +38,15 @@ const editTask = () => {
   }
 };
 
+// const deleteTask = (i) => {
+//   const newCollection = myList.taskCollection.filter(
+//     (TODO) => TODO.index !== myList.taskCollection[i].index,
+//   );
+//   myList.taskCollection = newCollection;
+//   saveValue();
+//   displayList();
+// };
+
 const deleteTask = () => {
   const trashCans = document.querySelectorAll('.trashCan');
   for (let i = 0; i < trashCans.length; i += 1) {
@@ -50,6 +60,7 @@ const deleteTask = () => {
     });
   }
 };
+
 const checkedCollection = [];
 const clearAll = () => {
   clearButton.addEventListener('click', () => {
