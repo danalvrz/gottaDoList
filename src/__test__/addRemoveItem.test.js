@@ -34,4 +34,10 @@ describe('addDelete', () => {
     addTask(e, addBox);
     expect(addBox.value).toBe('');
   });
+  it('Deletes only one item', () => {
+    const i = {};
+    i.path = [{ id: 0 }];
+    deleteTask(i);
+    expect(mockListB.taskCollection.length).toBe(1);
+  });
 });
