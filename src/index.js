@@ -37,7 +37,7 @@ const displayList = () => {
     myList.taskCollection[i].index = i;
     const listItem = document.createElement('li');
     listItem.classList.add('listItem');
-    listItem.innerHTML = `<input type="checkbox" class="checkbox" /><label contenteditable="true" class="taskDescription" type="text">${myList.taskCollection[i].description}</label><span class="deteleTask"><img src="${DeleteIcon}" class="trashCan"/></span>`;
+    listItem.innerHTML = `<input type="checkbox" class="checkbox" /><label contenteditable="true" class="taskDescription" type="text">${myList.taskCollection[i].description}</label><span class="deteleTask"><img src="${DeleteIcon}" class="trashCan" id="${i}"/></span>`;
     if (myList.taskCollection[i].completed === true) {
       listItem.classList.add('checked');
       listItem.children[0].checked = true;
@@ -45,9 +45,12 @@ const displayList = () => {
     list.appendChild(listItem);
   }
   checkStatus();
-  deleteTask();
   editTask();
   saveValue();
+  const trashCans = document.querySelectorAll('.trashCan');
+  trashCans.forEach((e) => {
+    e.addEventListener('click', deleteTask);
+  });
 };
 
 // Clear all button
@@ -65,12 +68,6 @@ getValue();
 addBox.addEventListener('keydown', addTask);
 
 displayList();
-const trashCans = document.querySelectorAll('.trashCan');
-console.log(trashCans);
-for (let i = 0; i < trashCans.length; i += 1) {
-  trashCans[i].addEventListener('click', deleteTask);
-}
-
 editTask();
 clearAll();
 

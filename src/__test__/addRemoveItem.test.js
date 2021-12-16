@@ -4,6 +4,8 @@
 
 const { addTask } = require('./addItem.js');
 const { mockList } = require('./addItem.js');
+const { deleteTask } = require('./removeItem.js');
+const { mockListB } = require('./removeItem.js');
 
 describe('addDelete', () => {
   it('Adds new TODO to taskCollection array', () => {

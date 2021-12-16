@@ -1,21 +1,19 @@
 import { Collection, TODO, saveValue } from '../statusCheck.js';
 
-const mockList = new Collection();
+const mockListB = new Collection();
 const mockItem = new TODO('water plants', false, 0);
-mockList.taskCollection.push(mockItem);
+const mockItem2 = new TODO('do dishes', false, 1);
+mockListB.taskCollection.push(mockItem);
+mockListB.taskCollection.push(mockItem2);
 
-const deleteTask = () => {
-  const trashCans = document.querySelectorAll('.trashCan');
-  for (let i = 0; i < trashCans.length; i += 1) {
-    trashCans[i].addEventListener('click', () => {
-      const newCollection = myList.taskCollection.filter(
-        (TODO) => TODO.index !== myList.taskCollection[i].index,
-      );
-      myList.taskCollection = newCollection;
-      saveValue();
-    });
+const deleteTask = (i) => {
+  if (i) {
+    const removeIndex = parseInt(i.path[0].id, 10);
+    const newCollection = mockListB.taskCollection.filter((TODO) => TODO.index !== removeIndex);
+    mockListB.taskCollection = newCollection;
+    saveValue();
   }
 };
 
-exports.addTask = addTask;
-exports.mockList = mockList;
+exports.deleteTask = deleteTask;
+exports.mockListB = mockListB;
