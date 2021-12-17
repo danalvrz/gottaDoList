@@ -1,0 +1,17 @@
+const { mockList } = require('./editItem.js');
+const { saveValue } = require('../statusCheck.js');
+
+// Updates the task description
+const updateTask = (cbox, i) => {
+  if (cbox[i].checked === true) {
+    cbox[i].parentNode.classList.add('checked');
+    mockList.taskCollection[i].completed = true;
+    saveValue();
+  } else if (cbox[i].checked !== true) {
+    cbox[i].parentNode.classList.remove('checked');
+    mockList.taskCollection[i].completed = false;
+    saveValue();
+  }
+};
+
+exports.updateTask = updateTask;
