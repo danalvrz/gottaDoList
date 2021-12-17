@@ -8,14 +8,14 @@ const deleteTask = () => {
   const trashCans = document.querySelectorAll('.trashCan');
   for (let i = 0; i < trashCans.length; i += 1) {
     trashCans[i].addEventListener('click', () => {
-      const newCollection = myList.taskCollection.filter(
-        (TODO) => TODO.index !== myList.taskCollection[i].index,
+      const newCollection = mockList.taskCollection.filter(
+        (TODO) => TODO.index !== mockList.taskCollection[i].index,
       );
-      myList.taskCollection = newCollection;
+      mockList.taskCollection = newCollection;
       saveValue();
     });
   }
 };
 
-exports.addTask = addTask;
+exports.deleteTask = deleteTask;
 exports.mockList = mockList;
