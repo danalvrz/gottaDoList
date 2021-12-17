@@ -7,10 +7,10 @@ class Collection {
 }
 
 class TODO {
-  constructor(description) {
+  constructor(description, completed = false, index) {
     this.description = description;
-    this.completed = false;
-    this.index = '';
+    this.completed = completed;
+    this.index = index;
   }
 }
 
@@ -50,5 +50,5 @@ function checkStatus() {
 }
 
 export {
-  checkStatus, saveValue, getValue, myList, TODO,
+  checkStatus, saveValue, getValue, myList, TODO, Collection,
 };
