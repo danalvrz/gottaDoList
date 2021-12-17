@@ -30,4 +30,18 @@ describe('editUpdateClear', () => {
     updateTask(cbox, i);
     expect(mockList.taskCollection[0].completed).toBe(false);
   });
+  it('clears TODO which completed value is true', () => {
+    const checkedCollection = [];
+    mockList.taskCollection[0].completed = true;
+    clearAll(checkedCollection);
+    expect(mockList.taskCollection.length).toBe(0);
+  });
+
+  // Test to check that localStorage is being mocked
+  it('saveValue() should not have saved to localStorage', () => {
+    const KEY = 'foo';
+    const VALUE = 'bar';
+    saveValue(KEY, VALUE);
+    expect(localStorage.setItem).not.toHaveBeenLastCalledWith(KEY, VALUE);
+  });
 });
